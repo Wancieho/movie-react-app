@@ -27,7 +27,7 @@ const Movie = ({ data }: Props) => {
     info: string | string[];
   }) => {
     return (
-      <Box className="p-1 mb-2 text-sm bg-gray-100">
+      <Box className="p-2 mb-2 text-sm bg-gray-100">
         <Label text={title} />
         {info}
       </Box>
