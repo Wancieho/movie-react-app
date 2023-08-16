@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body className="flex justify-center bg-gray-300 h-full">
-        <Box className="w-full md:w-full lg:w-[80%] bg-gray-600">
+        <Box className="w-full bg-gray-600 p-6 md:w-full lg:w-[80%]">
           {children}
         </Box>
       </body>

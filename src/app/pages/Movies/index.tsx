@@ -9,7 +9,7 @@ const MoviesPage = () => {
   const { t } = useTranslation();
 
   return (
-    <Grid container padding={2}>
+    <Grid container>
       <Grid item xs={12}>
         <Typography variant="h1" className="text-white">
           {t("movies")}

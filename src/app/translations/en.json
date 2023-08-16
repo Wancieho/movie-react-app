@@ -2,5 +2,6 @@
   "actors": "Actors",
   "director": "Director",
   "genre": "Genre",
-  "movies": "Movies"
+  "movies": "Movies",
+  "noMovies": "No movies found for current search criteria"
 }

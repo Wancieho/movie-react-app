@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import Movie, { IMovie } from "../Movie";
 
 import Search from "./Search";
@@ -18,17 +18,17 @@ const Movies = () => {
       <Grid item xs={12}>
         <Search setMovies={setMovies} data={jsonData.movies} />
       </Grid>
-      {movies?.length > 0 && (
-        <>
-          {movies.map((movie) => (
-            <Grid key={JSON.stringify(movie)} item xl={3} md={4} sm={6} xs={12}>
-              <Box className="flex h-full">
-                <Movie data={movie} />
-              </Box>
-            </Grid>
-          ))}
-        </>
-      )}
+      {movies?.length > 0 &&
+        movies?.map((movie) => (
+          <Grid key={JSON.stringify(movie)} item xl={3} md={4} sm={6} xs={12}>
+            <Box className="flex h-full">
+              <Movie data={movie} />
+            </Box>
+          </Grid>
+        ))}
+      <Grid item xs={12}>
+        {movies.length === 0 && <Typography>{t("noMovies")}</Typography>}
+      </Grid>
     </Grid>
   );
 };
