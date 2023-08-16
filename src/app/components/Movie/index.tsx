@@ -1,6 +1,7 @@
 import { Card, CardContent, Typography } from "@mui/material";
 
 import Label from "../Label";
+import { useTranslation } from "react-i18next";
 
 export type IMovie = {
   title: string;
@@ -16,25 +17,33 @@ type Props = {
 };
 
 const Movie = ({ data }: Props) => {
+  const { t } = useTranslation();
+
+  const InfoBlock = ({
+    title,
+    info,
+  }: {
+    title: string;
+    info: string | string[];
+  }) => {
+    return (
+      <Typography className="p-1 text-sm bg-gray-100" gutterBottom>
+        <Label text={title} />
+        {info}
+      </Typography>
+    );
+  };
+
   return (
     <Card className="flex-1">
       <CardContent>
         <Typography variant="h5" gutterBottom>
-          {data.title} ({data.year})
+          {data?.title} ({data?.year})
         </Typography>
-        <Typography className="p-1 text-sm bg-gray-100" gutterBottom>
-          <Label text="Director" />
-          {data.director}
-        </Typography>
-        <Typography className="p-1 text-xs bg-gray-100" gutterBottom>
-          <Label text="Actors" />
-          {data.actors.join(", ")}
-        </Typography>
-        <Typography className="p-1 text-xs bg-gray-100" gutterBottom>
-          <Label text="Genre" />
-          {data.genre.join(", ")}
-        </Typography>
-        <Typography>{data.rating}</Typography>
+        <InfoBlock title={t("director")} info={data?.director} />
+        <InfoBlock title={t("actors")} info={data?.actors.join(", ")} />
+        <InfoBlock title={t("genre")} info={data?.genre.join(", ")} />
+        <Typography>{data?.rating}</Typography>
       </CardContent>
     </Card>
   );

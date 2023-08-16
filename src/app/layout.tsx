@@ -1,4 +1,7 @@
+"use client";
+
 import "./globals.css";
+import "./i18n";
 
 import { Box } from "@mui/material";
 import type { Metadata } from "next";
