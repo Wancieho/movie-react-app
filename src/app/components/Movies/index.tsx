@@ -1,35 +1,27 @@
 "use client";
 
-import { Box, CircularProgress, Grid, TextField } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import Movie, { IMovie } from "../Movie";
 
+import Search from "./Search";
 import jsonData from "../../data/movies.json";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const Movies = () => {
-  const [movies] = useState<IMovie[]>(jsonData.movies);
+  const { t } = useTranslation();
 
-  const filter = (e: any) => {
-    console.info("e", e);
-  };
+  const [movies, setMovies] = useState<IMovie[]>(jsonData.movies);
 
   return (
     <Grid container spacing={2}>
-      {!movies && <CircularProgress />}
-      {movies && (
+      <Grid item xs={12}>
+        <Search setMovies={setMovies} data={jsonData.movies} />
+      </Grid>
+      {movies?.length > 0 && (
         <>
-          <Grid item xs={12}>
-            <TextField label="Outlined" variant="outlined" onChange={filter} />
-          </Grid>
           {movies.map((movie) => (
-            <Grid
-              key={JSON.stringify(movie)}
-              item
-              xl={3}
-              md={6}
-              sm={12}
-              xs={12}
-            >
+            <Grid key={JSON.stringify(movie)} item xl={3} md={4} sm={6} xs={12}>
               <Box className="flex h-full">
                 <Movie data={movie} />
               </Box>
