@@ -6,15 +6,15 @@ import { TextField } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
 type Props = {
-  setMovies: any;
   data: IMovie[];
+  onChange: (movies: IMovie[]) => void;
 };
 
-const Search = ({ setMovies, data }: Props) => {
+const Search = ({ onChange, data }: Props) => {
   const { t } = useTranslation();
 
   const filter = (e: ChangeEvent<HTMLInputElement>) => {
-    setMovies(
+    onChange(
       data.filter((movie) =>
         some(movie, (value: string) =>
           includes(toLower(value), toLower(e.target.value))
@@ -26,9 +26,12 @@ const Search = ({ setMovies, data }: Props) => {
   return (
     <TextField
       variant="filled"
-      className="bg-white"
+      InputProps={{
+        className: "bg-white",
+      }}
       label={t("search")}
       onChange={filter}
+      className="w-full"
     />
   );
 };
