@@ -7,7 +7,10 @@ type Props = {
 
 const Label = ({ text, size = "sm" }: Props) => {
   return (
-    <Typography className={`text-black font-bold text-${size}`}>
+    <Typography
+      className={`text-black font-bold text-${size}`}
+      component="label"
+    >
       {text}&nbsp;
     </Typography>
   );

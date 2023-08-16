@@ -1,4 +1,4 @@
-import { Card, CardContent, Typography } from "@mui/material";
+import { Box, Card, CardContent, Typography } from "@mui/material";
 
 import Label from "../Label";
 import { useTranslation } from "react-i18next";
@@ -27,10 +27,10 @@ const Movie = ({ data }: Props) => {
     info: string | string[];
   }) => {
     return (
-      <Typography className="p-1 text-sm bg-gray-100" gutterBottom>
+      <Box className="p-1 mb-2 text-sm bg-gray-100">
         <Label text={title} />
         {info}
-      </Typography>
+      </Box>
     );
   };
 
