@@ -1,4 +1,4 @@
-import { Box, Card, CardContent, Typography } from "@mui/material";
+import { Box, Card, CardContent, Rating, Typography } from "@mui/material";
 
 import Label from "../Label";
 import { useTranslation } from "react-i18next";
@@ -36,14 +36,16 @@ const Movie = ({ data }: Props) => {
 
   return (
     <Card className="flex-1">
-      <CardContent>
+      <CardContent className="h-full flex flex-col justify-between">
         <Typography variant="h5" gutterBottom>
           {data?.title} ({data?.year})
         </Typography>
-        <InfoBlock title={t("director")} info={data?.director} />
-        <InfoBlock title={t("actors")} info={data?.actors.join(", ")} />
-        <InfoBlock title={t("genre")} info={data?.genre.join(", ")} />
-        <Typography>{data?.rating}</Typography>
+        <Box>
+          <InfoBlock title={t("director")} info={data?.director} />
+          <InfoBlock title={t("actors")} info={data?.actors.join(", ")} />
+          <InfoBlock title={t("genre")} info={data?.genre.join(", ")} />
+          <Rating defaultValue={data?.rating} precision={0.25} max={10} />
+        </Box>
       </CardContent>
     </Card>
   );
