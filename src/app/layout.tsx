@@ -17,9 +17,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full">
-      <body className="flex justify-center bg-gray-300 h-full">
-        <Box className="w-full bg-gray-600 p-6 md:w-full lg:w-[80%]">
+    <html lang="en" className="h-full bg-gray-600">
+      <body className="flex justify-center h-full">
+        <Box className="w-full p-6 bg-gray-200 md:w-full lg:w-[80%]">
           {children}
         </Box>
       </body>

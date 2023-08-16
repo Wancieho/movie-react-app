@@ -11,7 +11,7 @@ const MoviesPage = () => {
   return (
     <Grid container>
       <Grid item xs={12}>
-        <Typography variant="h1" className="text-white">
+        <Typography variant="h1" className="text-gray-500">
           {t("movies")}
         </Typography>
       </Grid>
