@@ -1,5 +1,6 @@
 {
   "actors": "Actors",
   "director": "Director",
-  "genre": "Genre"
+  "genre": "Genre",
+  "movies": "Movies"
 }
